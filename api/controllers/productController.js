@@ -16,14 +16,13 @@ async function createProducts(req,res){
       }
     })
     console.log('Array filtrado:', response)
-    // const bd = await Product.bulkCreate(response)
-    // console.log('Insertado en BD:',bd)
+    const bd = await Product.bulkCreate(response)
+    console.log('Insertado en BD:',bd)
     res.status(200).json(response)
   } catch (error) {
     res.status(500).send('Error al intentar crear products', error.message)
   }
 }
-
 async function getProducts(req, res) {
   try {
     const products = await Product.findAll();
