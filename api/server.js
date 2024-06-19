@@ -17,6 +17,7 @@ const app = express();
 const port = process.env.SERVER_PORT || 3000
 
 app.use(bodyParser.json())
+app.use(express.json())
 app.use('/', productRoutes)
 
 app.listen(port, ()=>{
