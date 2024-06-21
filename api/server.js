@@ -5,12 +5,12 @@ const sequelize = require('./db/pool')
 require('dotenv').config()
 
 sequelize.sync()
-.then(()=>{
-    console.log('Modelos sincronizados')
-})
-.catch((error)=>{
-    console.log(`Error al sincronizar`,error)
-})
+    .then(() => {
+        console.log('Modelos sincronizados')
+    })
+    .catch((error) => {
+        console.log(`Error al sincronizar`, error)
+    })
 
 const app = express();
 
@@ -20,6 +20,6 @@ app.use(bodyParser.json())
 app.use(express.json())
 app.use('/', productRoutes)
 
-app.listen(port, ()=>{
+app.listen(port, () => {
     console.log(`Server escuchando en puerto ${port}`)
 })
