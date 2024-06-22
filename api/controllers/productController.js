@@ -33,23 +33,44 @@ async function allProducts(req, res) {
   }
 }
 
-async function getProduct(req, res) {
+async function queryByCategory(req, res) {
+  const { category } = req.body
   try {
-    const id = req.body.id
-    console.log(id)
-    const product = await Product.findAll({ where: { id: id } })
-    if (product.stock === 0) {
-      res.json('No hay stock de ese producto')
+    const products = await Product.findAll({
+      where: { category }
+    })
+    if (products.length === 0) {
+      return res.status(404).json({ message: 'No tenemos productos con esa categoría' })
     }
-    res.status(200).json(product)
-  }
-  catch (error) {
-    res.status(500).send('Error al comprar el producto: ', error)
+    res.status(200).json(products)
+  } catch (error) {
+    res.status(500).json(error)
   }
 }
+
+async function updateStock(req, res) {
+  const { id, quantity } = req.body
+  try {
+    const product = await Product.findByPk(id)
+    if (!product) {
+      return res.status(404).json({ message: 'Producto no encontrado' })
+    }
+    if (product.stock < quantity) {
+      return res.status(400).json({ message: 'No tenemos stock de ese producto' })
+    }
+    product.stock -= quantity
+    await product.save()
+
+    res.json({ message: 'Stock actualizado correctamente', product })
+  } catch (error) {
+    res.status(500).json(error)
+  }
+}
+
 
 module.exports = {
   allProducts,
   createProducts,
-  getProduct
+  queryByCategory,
+  updateStock
 };
