@@ -33,6 +33,16 @@ async function allProducts(req, res) {
   }
 }
 
+async function fetchById (req,res){
+  const {id} = req.body
+  try {
+    const product = await Product.findOne({where:id})
+    res.json(product)
+  } catch (error) {
+    res.status(500).json(error)
+  }
+}
+
 async function queryByCategory(req, res) {
   const { category } = req.body
   try {
@@ -72,5 +82,6 @@ module.exports = {
   allProducts,
   createProducts,
   queryByCategory,
-  updateStock
+  updateStock,
+  fetchById
 };
