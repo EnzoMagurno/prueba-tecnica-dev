@@ -1,24 +1,31 @@
 import axios from "axios";
-const API_URL = process.env.REACT_APP_API_URL
 
-export const fetchProducts = async (page = 1, category = '', sort= '')=>{
+// require('dotenv').config()
 
-    const response = await axios.get(`${process.env.API_URL}/products`,{
-        params: {page,category,sort}
-    })
-    return response.data
-}
+const API_URL = "http://localhost:3000";
 
-export const fetchProductById = async (id) =>{
-    const response = await axios.get(`${API_URL}/products`,{
-        id
-    })
-    return response.data
-}
+export const fetchProducts = async () => {
+  try {
+    const response = await axios.get(`${API_URL}/products`);
+    console.log("fetchProducts", response.data);
+    return response.data;
+  } catch (error) {
+    console.error("Error fecthProducts: ", error);
+    throw error;
+  }
+};
 
-export const updateStock = async(id, quantity) => {
-    const response = axios.get(`${API_URL}/updateStock`,{
-        id,quantity
-    })
-    return response.data
-}
+export const fetchProductById = async (id) => {
+  const response = await axios.get(`${API_URL}/products`, {
+    id,
+  });
+  return response.data;
+};
+
+export const updateStock = async (id, quantity) => {
+  const response = axios.get(`${API_URL}/updateStock`, {
+    id,
+    quantity,
+  });
+  return response.data;
+};
