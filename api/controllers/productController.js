@@ -25,9 +25,22 @@ async function createProducts(req, res) {
 }
 
 async function allProducts(req, res) {
+  
   try {
-    const products = await Product.findAll();
-    res.json(products);
+    const {page = 0,size = 12, sortOrder = 'asc'} = req.query
+    let options = {
+      limit : +size,
+      offset : (+page)*(+size) ,
+      order: [['price',sortOrder]]
+    }
+
+    const {count,rows} = await Product.findAndCountAll(options)
+
+    res.status(200).json({
+      total:count,
+      products:rows
+    })
+
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
