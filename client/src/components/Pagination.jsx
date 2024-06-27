@@ -1,6 +1,7 @@
 import React from 'react';
 
-const Pagination = ({ currentPage, totalPages, onPageChange }) => {
+const Pagination = ({ currentPage, totalPages , onPageChange }) => {
+    totalPages = 10
     const handleClick = (page) => {
         onPageChange(page); 
     };

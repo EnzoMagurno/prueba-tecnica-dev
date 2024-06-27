@@ -16,7 +16,7 @@ const ProductList = () => {
 
   useEffect(() => {
     const loadProducts = async () => {
-      const data = await fetchProducts();
+      const data = await fetchProducts(currentPage, productsPerPage, sortOrder);
       setProducts(data);
     };
     loadProducts();
@@ -34,7 +34,7 @@ const ProductList = () => {
               <h2>{product.title}</h2>
               <p>Price: ${product.price}</p>
             </div>
-          )).slice(0,3)}
+          ))}
           </div>
         ) 
         : 
