@@ -2,6 +2,7 @@ import React from 'react';
 import { updateStock } from '../../services/api';
 
 const PurchaseSimulation = ({ productId, currentStock }) => {
+    console.log('ProductID:',productId, 'CurrentStock:',currentStock)
     const handlePurchase = async () => {
         if (currentStock > 0) {
             try {

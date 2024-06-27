@@ -3,6 +3,8 @@ import { fetchProducts } from "../../services/api";
 import Pagination from "./Pagination";
 import SortOptions from "./SortOptions";
 import ProductDetail from "./ProductDetail";
+import Spinner from "./Spinner";
+
 
 const ProductList = () => {
   const [products, setProducts] = useState([]);
@@ -23,17 +25,24 @@ const ProductList = () => {
   return (
     <div>
       <SortOptions onSortChange={setSortOrder} />
-      <div className="product-list">
-        {products
-          .map((product) => (
+      {
+        products?.length ?
+        (
+          <div>
+          {products.map(product => (
             <div key={product.id} onClick={() => setSelectedProduct(product)}>
-              <h3>{product.title}</h3>
-              <p>{product.price}</p>
-              <img src={product.image} alt={product.title} />
+              <h2>{product.title}</h2>
+              <p>Price: ${product.price}</p>
             </div>
-          ))
-          .slice(0, 12)}
-      </div>
+          )).slice(0,3)}
+          </div>
+        ) 
+        : 
+        (
+          <Spinner />
+        )
+      }
+
       <Pagination
         currentPage={currentPage}
         totalPages={Math.ceil(products.length / productsPerPage)}
