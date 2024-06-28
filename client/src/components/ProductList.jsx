@@ -30,10 +30,11 @@ const ProductList = () => {
         (
           <div>
           {products.map(product => (
-            <div key={product.id} onClick={() => setSelectedProduct(product)}>
-              <h2>{product.title}</h2>
-              <p>Price: ${product.price}</p>
-            </div>
+            product.stock ? <div key={product.id} onClick={() => setSelectedProduct(product)}>
+            <h2>{product.title}</h2>
+            <p>Price: ${product.price}</p>
+          </div> 
+          : null
           ))}
           </div>
         ) 

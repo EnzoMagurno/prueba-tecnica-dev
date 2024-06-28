@@ -1,12 +1,13 @@
 import React from 'react';
 import { updateStock } from '../../services/api';
 
-const PurchaseSimulation = ({ productId, currentStock }) => {
-    console.log('ProductID:',productId, 'CurrentStock:',currentStock)
+
+const PurchaseSimulation = ({ productId, currentStock ,amount}) => {
+    console.log('ProductID:',productId, 'CurrentStock:',currentStock,'amount',amount)
     const handlePurchase = async () => {
         if (currentStock > 0) {
             try {
-                await updateStock(productId, currentStock - 1); 
+                await updateStock(productId, amount); 
                 alert('Compra realizada con éxito');
             } catch (error) {
                 console.error('Error al actualizar el stock', error);

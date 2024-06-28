@@ -23,9 +23,13 @@ export const fetchProductById = async (id) => {
 };
 
 export const updateStock = async (id, quantity) => {
-  const response = axios.get(`${API_URL}/updateStock`, {
-    id,
-    quantity,
-  });
-  return response.data;
+  try {
+    const response = axios.post(`${API_URL}/products/updateStock`, {
+      id,
+      quantity,
+    });
+    return response.data;
+  } catch (error) {
+    res.status(500).json({error})
+  }
 };
