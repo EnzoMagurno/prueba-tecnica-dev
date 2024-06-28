@@ -6,7 +6,7 @@ router.get('/products', allProducts);
 router.get(`/productById/`,fetchById)
 router.get('/products/filter', queryByCategory)
 router.get('/createProducts', createProducts)
-router.get('/products/updateStock', updateStock)
+router.post('/products/updateStock', updateStock)
 
 
 module.exports = router
