@@ -23,7 +23,10 @@ const ProductDetail = ({product}) => {
     <div>
       <p>Amount: {amount}</p>
       <button onClick={()=>setAmount(amount+1)}>+</button>
-      <button onClick={()=>setAmount(amount>0 && amount-1)}>-</button>
+      <button onClick={()=>setAmount(amount>1 ? amount-1 : amount)}
+      disabled={amount==1}  
+      >-
+      </button>
     </div>
 
     <PurchaseSimulation productId = {product.id} amount = {amount} currentStock = {product.stock}/>

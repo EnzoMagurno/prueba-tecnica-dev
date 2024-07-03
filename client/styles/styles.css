@@ -1,0 +1,119 @@
+/* styles.css */
+
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+  }
+  
+  button {
+    background-color: #3483fa;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+  
+  button:hover {
+    background-color: #2968c8;
+  }
+  
+  button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  /* SortOptions Component */
+  .sort-buttons {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+  }
+  
+  .sort-buttons button {
+    margin: 0 5px;
+  }
+  
+  /* Pagination Component */
+  .pagination {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+  }
+  
+  .pagination button {
+    margin: 0 5px;
+  }
+  
+  /* ProductDetail Component */
+  .product-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px;
+    text-align: center;
+  }
+  
+  .product-card h2 {
+    color: #3483fa;
+  }
+  
+  .product-card p {
+    margin: 10px 0;
+  }
+  
+  .product-card div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .product-card div button {
+    margin: 0 10px;
+  }
+  
+  /* ProductList Component */
+  .product-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .product-list div {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s;
+  }
+  
+  .product-list div:hover {
+    transform: scale(1.05);
+  }
+  
+  .product-list h2 {
+    color: #3483fa;
+  }
+  
+  .product-list p {
+    margin: 10px 0;
+  }
+  
+  /* Spinner Component */
+  .spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+  }
+  
