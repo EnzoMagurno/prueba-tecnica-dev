@@ -1,7 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import React, {useState } from 'react'
 import PurchaseSimulation from './PurchaseSimulation'
-
-
 
 const ProductDetail = ({product}) => {
 
@@ -9,9 +7,6 @@ const ProductDetail = ({product}) => {
 
   const [amount, setAmount] = useState(1)
   
-  if(amount===false){
-    //modal para indicar no negativos.
-  }
 
   return (
     <div className='product-card'>

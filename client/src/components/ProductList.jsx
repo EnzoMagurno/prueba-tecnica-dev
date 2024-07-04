@@ -4,6 +4,7 @@ import Pagination from "./Pagination";
 import SortOptions from "./SortOptions";
 import ProductDetail from "./ProductDetail";
 import Spinner from "./Spinner";
+import Header from "./Header";
 
 
 const ProductList = () => {
@@ -23,16 +24,19 @@ const ProductList = () => {
   }, [currentPage, sortOrder]);
 
   return (
-    <div>
+
+    <>
+      <Header/>
       <SortOptions onSortChange={setSortOrder} />
       {
         products?.length ?
         (
-          <div>
+          <div  className="product-list">
           {products.map(product => (
             product.stock ? <div key={product.id} onClick={() => setSelectedProduct(product)}>
             <h2>{product.title}</h2>
             <p>Price: ${product.price}</p>
+            <img src='../public/product.jpg' alt={product.title} />
           </div> 
           : null
           ))}
@@ -50,7 +54,7 @@ const ProductList = () => {
         onPageChange={setCurrentPage}
       />
       {selectedProduct && <ProductDetail product={selectedProduct} />}
-    </div>
+    </>
   );
 };
 

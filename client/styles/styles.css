@@ -1,119 +1,158 @@
-/* styles.css */
-
 /* General Styles */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
-    color: #333;
-  }
-  
-  button {
-    background-color: #3483fa;
-    color: #fff;
-    border: none;
-    padding: 10px 15px;
-    margin: 5px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-  }
-  
-  button:hover {
-    background-color: #2968c8;
-  }
-  
-  button:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
-  }
-  
-  /* SortOptions Component */
-  .sort-buttons {
-    display: flex;
-    justify-content: center;
-    margin: 20px 0;
-  }
-  
-  .sort-buttons button {
-    margin: 0 5px;
-  }
-  
-  /* Pagination Component */
-  .pagination {
-    display: flex;
-    justify-content: center;
-    margin: 20px 0;
-  }
-  
-  .pagination button {
-    margin: 0 5px;
-  }
-  
-  /* ProductDetail Component */
-  .product-card {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    margin: 20px;
-    text-align: center;
-  }
-  
-  .product-card h2 {
-    color: #3483fa;
-  }
-  
-  .product-card p {
-    margin: 10px 0;
-  }
-  
-  .product-card div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .product-card div button {
-    margin: 0 10px;
-  }
-  
-  /* ProductList Component */
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+button {
+  background-color: #3483fa;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  margin: 5px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #2968c8;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* SortOptions Component */
+.sort-buttons {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.sort-buttons button {
+  margin: 0 5px;
+}
+
+/* Pagination Component */
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.pagination button {
+  margin: 0 5px;
+}
+
+/* ProductDetail Component */
+.product-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 20px;
+  text-align: center;
+}
+
+.product-card h2 {
+  color: #3483fa;
+}
+
+.product-card p {
+  margin: 10px 0;
+}
+
+.product-card div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.product-card div button {
+  margin: 0 10px;
+}
+
+/* ProductList Component */
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  justify-items: center;
+}
+
+.product-list div {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s;
+  max-width: 300px;
+}
+
+.product-list div:hover {
+  transform: scale(1.05);
+}
+
+.product-list h2 {
+  color: #3483fa;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+}
+
+.product-list p {
+  margin: 10px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+}
+
+
+/* Spinner Component */
+.spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+}
+
+/* Site Logo */
+.logo-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-color: #3483fa50;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.logo-div img {
+  max-width: 120px;
+  height: auto;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
+.logo-div h2 {
+  font-size: 2rem;
+  color: #fff;
+  margin: 0;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
   .product-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    grid-template-columns: 1fr;
   }
-  
-  .product-list div {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    margin: 20px;
-    text-align: center;
-    cursor: pointer;
-    transition: transform 0.3s;
-  }
-  
-  .product-list div:hover {
-    transform: scale(1.05);
-  }
-  
-  .product-list h2 {
-    color: #3483fa;
-  }
-  
-  .product-list p {
-    margin: 10px 0;
-  }
-  
-  /* Spinner Component */
-  .spinner {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100px;
-  }
-  
+}

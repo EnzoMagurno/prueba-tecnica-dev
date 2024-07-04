@@ -5,7 +5,6 @@ import './styles/styles.css'
 const App = () => {
   return (
     <div>
-      <h1>Productos</h1>
     <ProductList/>
     </div>
   )
