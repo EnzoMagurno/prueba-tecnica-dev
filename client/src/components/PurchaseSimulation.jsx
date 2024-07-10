@@ -20,7 +20,7 @@ const PurchaseSimulation = ({ productId, currentStock ,amount}) => {
 
     return (
         <div>
-            <button onClick={handlePurchase}>Buy</button> 
+            <button className='button' onClick={handlePurchase}>Buy</button> 
         </div>
     );
 };

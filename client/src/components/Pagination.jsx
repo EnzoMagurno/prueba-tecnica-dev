@@ -10,6 +10,7 @@ const Pagination = ({ currentPage, totalPages , onPageChange }) => {
         <div className='pagination'>
             {[...Array(totalPages).keys()].map((_, index) => (
                 <button
+                    className='button'
                     key={index}
                     onClick={() => handleClick(index + 1)}
                     disabled={currentPage === index + 1} 

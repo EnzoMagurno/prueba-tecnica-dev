@@ -1,12 +1,21 @@
 import React from 'react'
+import { FaDollarSign } from "react-icons/fa6";
+import { FaLongArrowAltDown } from "react-icons/fa";
+import { FaLongArrowAltUp } from "react-icons/fa";
+
 
 const SortOptions = ({onSortChange}) => {
   return (
     <>
     <div className="sort-buttons">
-
-    <button onClick={()=> onSortChange('asc')}>Price: Low to High</button>
-    <button onClick={()=> onSortChange('desc')}>Price: High to Low</button>
+      <div className='button' onClick={()=>onSortChange('asc')}>
+        <FaDollarSign/>
+        <FaLongArrowAltDown/>
+      </div>
+      <div className='button' onClick={()=>onSortChange('desc')}>
+        <FaDollarSign/>
+        <FaLongArrowAltUp/>
+      </div>
     </div>
     </>  
 )

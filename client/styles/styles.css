@@ -1,11 +1,10 @@
-
 body {
   font-family: Arial, sans-serif;
   background-color: #f5f5f5;
   color: #333;
 }
 
-button {
+.button {
   background-color: #3483fa;
   color: #fff;
   border: none;
@@ -16,7 +15,7 @@ button {
   transition: background-color 0.3s;
 }
 
-button:hover {
+.button:hover {
   background-color: #2968c8;
 }
 
@@ -116,7 +115,6 @@ button:disabled {
   width: 100%;
 }
 
-
 /* Spinner Component */
 .spinner {
   display: flex;
@@ -136,7 +134,12 @@ button:disabled {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.logo-div img {
+.logo-name {
+  display: flex;
+  align-items: center;
+}
+
+.logo-name img {
   max-width: 120px;
   height: auto;
   border-radius: 50%;
@@ -144,32 +147,74 @@ button:disabled {
   cursor: pointer;
 }
 
-.logo-div h2 {
+.logo-name h2 {
   font-size: 2rem;
   color: #fff;
   margin: 0;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
-.logo-name{
+
+.searchDiv {
   display: flex;
-  align-items: center
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 0 20px;
+  flex: 1;
+  max-width: 50%; 
 }
 
-.cart-div{
-  display: flex;
-  justify-content: end;
+.searchDiv input[type="text"] {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-left: 10px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s;
 }
 
-.cart{
+.searchDiv input[type="text"]:focus {
+  border-color: #3483fa;
+}
+
+.searchDiv svg {
+  font-size: 1.5rem;
+  color: #3483fa;
+}
+
+.cart-div {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.cart {
   font-size: 2rem;
   padding-right: 1rem;
 }
 
-.cart:hover{
+.cart:hover {
   cursor: pointer;
 }
 
 /* Responsive Design */
+@media (max-width: 768px) {
+  .searchDiv {
+    flex-direction: row;
+    align-items: center;
+    margin: 10px 0;
+    max-width: 35%; 
+  }
+
+  .searchDiv input[type="text"] {
+    width: 100%;
+  }
+}
+
 @media (max-width: 768px) {
   .product-list {
     grid-template-columns: 1fr;
