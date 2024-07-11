@@ -6,12 +6,12 @@ import ProductDetail from "./ProductDetail";
 import Spinner from "./Spinner";
 import Header from "./Header";
 
-
 const ProductList = () => {
   const [products, setProducts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [sortOrder, setSortOrder] = useState("asc");
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const [notificationVisible, setNotificationVisible] = useState(false);
 
   const productsPerPage = 12;
 
@@ -23,31 +23,30 @@ const ProductList = () => {
     loadProducts();
   }, [currentPage, sortOrder]);
 
+  const handleProductClick = (product) => {
+    setSelectedProduct(product);
+    setNotificationVisible(true);
+  }
+
   return (
-
     <>
-      <Header/>
+      <Header notificationVisible={notificationVisible} />
       <SortOptions onSortChange={setSortOrder} />
-      {
-        products?.length ?
-        (
-          <div  className="product-list">
-          {products.map(product => (
-            product.stock ? <div key={product.id} onClick={() => setSelectedProduct(product)}>
-            <h2>{product.title}</h2>
-            <p>Price: ${product.price}</p>
-            <img src='../public/product.jpg' alt={product.title} />
-          </div> 
-          : null
-          ))}
-          </div>
-        ) 
-        : 
-        (
-          <Spinner />
-        )
-      }
-
+      {products?.length ? (
+        <div className="product-list">
+          {products.map((product) =>
+            product.stock ? (
+              <div key={product.id} onClick={() => handleProductClick(product)}>
+                <h2>{product.title}</h2>
+                <p>Price: ${product.price}</p>
+                <img src='../public/product.jpg' alt={product.title} />
+              </div>
+            ) : null
+          )}
+        </div>
+      ) : (
+        <Spinner />
+      )}
       <Pagination
         currentPage={currentPage}
         totalPages={Math.ceil(products.length / productsPerPage)}

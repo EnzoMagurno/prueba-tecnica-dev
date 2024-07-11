@@ -201,6 +201,42 @@ button:disabled {
   cursor: pointer;
 }
 
+.cart-modal {
+  position: fixed;
+  top: 50px;
+  right: 20px;
+  width: 300px;
+  max-width: 90%;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 20px;
+  z-index: 1000;
+}
+
+.cart-modal .button {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.cart-modal .button:hover {
+  background-color: #ff1a1a;
+}
+
+.cart-modal p {
+  margin: 0 0 10px 0;
+  font-size: 16px;
+}
+
+.notificationCart{
+  display: inline-block;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .searchDiv {
@@ -218,5 +254,14 @@ button:disabled {
 @media (max-width: 768px) {
   .product-list {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .cart-modal {
+    width: 90%;
+    right: 5%;
+    left: 5%;
+    top: 20px;
   }
 }
