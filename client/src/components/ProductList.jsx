@@ -12,6 +12,7 @@ const ProductList = () => {
   const [sortOrder, setSortOrder] = useState("asc");
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [notificationVisible, setNotificationVisible] = useState(false);
+  const [cartItems, setCartItems] = useState([]);
 
   const productsPerPage = 12;
 
@@ -25,12 +26,17 @@ const ProductList = () => {
 
   const handleProductClick = (product) => {
     setSelectedProduct(product);
+    setCartItems(prevItems => [...prevItems, product]);
     setNotificationVisible(true);
+  };
+
+  const handleCloseCart = () => {
+    setNotificationVisible(false)
   }
 
   return (
     <>
-      <Header notificationVisible={notificationVisible} />
+      <Header onCloseCart={handleCloseCart} notificationVisible={notificationVisible} cartItems={cartItems} />
       <SortOptions onSortChange={setSortOrder} />
       {products?.length ? (
         <div className="product-list">

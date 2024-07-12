@@ -5,11 +5,15 @@ import { FaMagnifyingGlass } from "react-icons/fa6";
 import { IoClose } from "react-icons/io5";
 import { GoDotFill } from "react-icons/go";
 
-const Header = ({ notificationVisible }) => {
+const Header = ({ notificationVisible, cartItems, onCloseCart }) => {
   const [showCart, setShowCart] = useState(false);
+
 
   const handleCart = () => {
     setShowCart(prevShowCart => !prevShowCart);
+    if(showCart){
+      onCloseCart()
+    }
   };
 
   return (
@@ -25,12 +29,21 @@ const Header = ({ notificationVisible }) => {
         <input id='search' type="text" placeholder='Search products...' />
       </div>
       <div className='cart-div'>
+        <div className='cart-icon'>
         <FaShoppingCart className='cart' onClick={handleCart} />
         {notificationVisible && <GoDotFill className='notificationCart' />}
+        </div>
         {showCart && (
           <div className='cart-modal'>
             <p>Cart</p>
             <IoClose className='button' onClick={handleCart} />
+            <ul>
+              {cartItems.map((item, index) => (
+                <li key={index}>
+                  {item.title} - ${item.price}
+                </li>
+              ))}
+            </ul>
           </div>
         )}
       </div>
