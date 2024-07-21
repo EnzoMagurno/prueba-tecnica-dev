@@ -124,6 +124,9 @@ button:disabled {
 }
 
 /* Site Logo */
+
+
+
 .logo-div {
   display: flex;
   align-items: center;
@@ -149,42 +152,10 @@ button:disabled {
 
 .logo-name h2 {
   font-size: 2rem;
-  color: #fff;
+  font-family: sans-serif;
+  color: #ffffff;
   margin: 0;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-}
-
-.searchDiv {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px;
-  background-color: #fff;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin: 0 20px;
-  flex: 1;
-  max-width: 50%; 
-}
-
-.searchDiv input[type="text"] {
-  flex: 1;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  margin-left: 10px;
-  font-size: 1rem;
-  outline: none;
-  transition: border-color 0.3s;
-}
-
-.searchDiv input[type="text"]:focus {
-  border-color: #3483fa;
-}
-
-.searchDiv svg {
-  font-size: 1.5rem;
-  color: #3483fa;
 }
 
 .cart-div {
@@ -255,19 +226,6 @@ button:disabled {
 
 
 /* Responsive Design */
-@media (max-width: 768px) {
-  .searchDiv {
-    flex-direction: row;
-    align-items: center;
-    margin: 10px 0;
-    max-width: 35%; 
-  }
-
-  .searchDiv input[type="text"] {
-    width: 100%;
-  }
-}
-
 @media (max-width: 768px) {
   .product-list {
     grid-template-columns: 1fr;

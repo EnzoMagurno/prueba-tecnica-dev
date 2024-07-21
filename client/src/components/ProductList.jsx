@@ -33,7 +33,6 @@ const ProductList = () => {
   const handleCloseCart = () => {
     setNotificationVisible(false)
   }
-
   return (
     <>
       <Header onCloseCart={handleCloseCart} notificationVisible={notificationVisible} cartItems={cartItems} />
@@ -44,14 +43,14 @@ const ProductList = () => {
             product.stock ? (
               <div key={product.id} onClick={() => handleProductClick(product)}>
                 <h2>{product.title}</h2>
-                <p>Price: ${product.price}</p>
+                <p>$ {product.price}</p>
                 <img src='../public/product.jpg' alt={product.title} />
               </div>
             ) : null
           )}
         </div>
       ) : (
-        <Spinner />
+        <Spinner/>
       )}
       <Pagination
         currentPage={currentPage}

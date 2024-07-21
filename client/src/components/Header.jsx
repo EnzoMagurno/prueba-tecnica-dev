@@ -6,8 +6,8 @@ import { IoClose } from "react-icons/io5";
 import { GoDotFill } from "react-icons/go";
 
 const Header = ({ notificationVisible, cartItems, onCloseCart }) => {
-  const [showCart, setShowCart] = useState(false);
 
+  const [showCart, setShowCart] = useState(false);
 
   const handleCart = () => {
     setShowCart(prevShowCart => !prevShowCart);
@@ -20,13 +20,7 @@ const Header = ({ notificationVisible, cartItems, onCloseCart }) => {
     <div className='logo-div'>
       <div className='logo-name'>
         <img src={logo} alt="E-commerce Logo" onClick={() => window.location.reload()} />
-        <h2>Products</h2>
-      </div>
-      <div className='searchDiv'>
-        <label htmlFor='search'>
-          <FaMagnifyingGlass />
-        </label>
-        <input id='search' type="text" placeholder='Search products...' />
+        <h2 className='title'>Products</h2>
       </div>
       <div className='cart-div'>
         <div className='cart-icon'>

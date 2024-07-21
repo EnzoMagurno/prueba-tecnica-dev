@@ -16,6 +16,12 @@ const SortOptions = ({onSortChange}) => {
         <FaDollarSign/>
         <FaLongArrowAltUp/>
       </div>
+      <div>
+      <div className='button' onClick={()=>onSortChange('asc')}>
+      
+      </div>
+
+      </div>
     </div>
     </>  
 )

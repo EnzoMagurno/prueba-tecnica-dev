@@ -5,7 +5,6 @@ const Pagination = ({ currentPage, totalPages , onPageChange }) => {
     const handleClick = (page) => {
         onPageChange(page); 
     };
-
     return (
         <div className='pagination'>
             {[...Array(totalPages).keys()].map((_, index) => (
